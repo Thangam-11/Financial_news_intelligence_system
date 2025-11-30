@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "financial-news-ai"
+version = "0.1.0"
+description = "AI-powered multi-agent financial news intelligence system with Groq LLM"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Thangarasu", email = "thangamani1128@gmail.com" }
+]
+
+dependencies = [
+    # FastAPI + server
+    "fastapi",
+    "uvicorn[standard]",
+
+    # Database
+    "sqlalchemy>=2.0",
+    "psycopg2-binary",
+    "pgvector",
+
+    # Scraping + RSS
+    "requests",
+    "feedparser",
+    "beautifulsoup4",
+    "playwright",
+    "selenium",
+
+    # NLP + preprocessing
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "regex",
+    "spacy",
+    "spacy-transformers",
+
+    # LLM + Embeddings
+    "openai",
+    "groq",                 # Groq Python SDK
+    "langchain-groq",       # LangChain + Groq integration
+    "transformers",
+    "torch",
+    "sentence-transformers",
+
+    # Vector Stores
+    "chromadb",
+    "faiss-cpu",
+
+    # LangChain + LangGraph
+    "langchain",
+    "langchain-community",
+    "langgraph",
+
+    # Utils
+    "python-dotenv",
+    "tqdm",
+    "pydantic",
+    "pyyaml",
+    "loguru"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "ruff",
+    "isort",
+]
+
+# 👇 FIXED — works with your folder structure (NO src folder)
+[tool.setuptools]
+packages = { find = { where = ["src"] } }
