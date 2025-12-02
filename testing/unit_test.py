@@ -1,10 +1,5 @@
 from agents_lang.ingestion_agent import IngestionAgent
 
-agent = IngestionAgent()
-
-state = {}
-new_state = agent.run(state)
-
-print("Returned keys:", new_state.keys())
-print("Number of articles:", len(new_state.get("articles", [])))
-
+ing = IngestionAgent()
+out = ing.run({})
+print("Articles fetched:", len(out["articles"]))
